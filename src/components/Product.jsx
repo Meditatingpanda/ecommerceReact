@@ -7,7 +7,7 @@ import {
 
 const Product = ({ item }) => {
   return (
-    <div className="w-1/4 m-1   min-w-[9rem] aspect-square bg-[#F5FBFD]  relative flex justify-center items-center">
+    <div className="w-1/4 m-1  shadow-md  min-w-[9rem] aspect-square bg-[#F5FBFD]  relative flex justify-center items-center">
       <div>
         <img src={item.img} className="object-scale-down" />
       </div>
