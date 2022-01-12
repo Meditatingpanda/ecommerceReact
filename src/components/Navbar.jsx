@@ -18,7 +18,7 @@ const Navbar = () => {
             <Badge badgeContent={9999} color="secondary" className="mr-3">
             <ShoppingCart/>
             </Badge>
-            Cart
+           
           </div>
             <i className="fas fa-bars text-white text-lg"></i>
           </div>

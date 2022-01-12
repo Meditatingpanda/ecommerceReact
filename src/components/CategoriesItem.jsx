@@ -1,7 +1,7 @@
 const Items = ({ id, img, des }) => {
   return (
     <div
-      className="w-[75%] p-5 mr-1 md:w-1/4 md:min-w-max bg-gray-100 h-full rounded shadow-lg flex flex-col items-center justify-around mb-8"
+      className="w-[75%] p-5 mr-1 sm:w-[24rem] -gray-100 h-full rounded shadow-lg flex flex-col items-center justify-around mb-8"
       key={id}
     >
       <img src={`${img}`} className="w-10/12 h-[60%] object-cover rounded" />

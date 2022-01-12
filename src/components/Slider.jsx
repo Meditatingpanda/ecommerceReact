@@ -13,7 +13,7 @@ export const slider = (
     <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
       <div className="w-[80%]">
         <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Summer Sale!!!
+          Winter Sale!!
         </h2>
         <p className="mb-6 text-xs lg:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
@@ -22,10 +22,10 @@ export const slider = (
       </div>
     </div>
 
-    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
+    <div className=" h-full w-full  text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)]">
       <div className="w-[80%]">
         <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Summer Sale!!!
+          Winter Sale!!
         </h2>
         <p className="mb-6 text-xs lg:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
@@ -34,10 +34,10 @@ export const slider = (
       </div>
     </div>
 
-    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
+    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/804570/pexels-photo-804570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)]">
       <div className="w-[80%]">
         <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Summer Sale!!!
+          Winter Sale!!
         </h2>
         <p className="mb-6 text-xs lg:text-lg">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
