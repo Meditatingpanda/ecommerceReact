@@ -429,6 +429,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .m-1 {
   margin: 0.25rem;
 }
+.mx-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
 .mt-\[7vh\] {
   margin-top: 7vh;
 }
@@ -510,6 +514,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-\[45vh\] {
   height: 45vh;
 }
+.h-\[30vh\] {
+  height: 30vh;
+}
 .w-\[75\%\] {
   width: 75%;
 }
@@ -557,6 +564,18 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-\[5rem\] {
   width: 5rem;
+}
+.w-\[50\%\] {
+  width: 50%;
+}
+.w-\[10\] {
+  width: 10;
+}
+.w-\[10\%\] {
+  width: 10%;
+}
+.w-\[8\%\] {
+  width: 8%;
 }
 .min-w-\[9rem\] {
   min-width: 9rem;
@@ -836,6 +855,10 @@ Ensure the default browser behavior of the `hidden` attribute.
     height: 2rem;
   }
 
+  .sm\:h-\[45vh\] {
+    height: 45vh;
+  }
+
   .sm\:w-\[24rem\] {
     width: 24rem;
   }
@@ -855,6 +878,16 @@ Ensure the default browser behavior of the `hidden` attribute.
   .sm\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
+  }
+
+  .sm\:text-6xl {
+    font-size: 3.75rem;
+    line-height: 1;
+  }
+
+  .sm\:text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
   }
 }
 @media (min-width: 768px) {
