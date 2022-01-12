@@ -1,5 +1,6 @@
 import "../style/main.css";
 import { Search, ShoppingCart } from "@material-ui/icons";
+import { Badge } from "@material-ui/core";
 
 const Navbar = () => {
   return (
@@ -12,8 +13,14 @@ const Navbar = () => {
               className=" ml-3 mb-3 h-6 sm:h-8"
             />
           </div>
-          <div className="  justify-self-end mr-1 cursor-pointer sm:hidden">
-            <i class="fas fa-bars text-white text-lg"></i>
+          <div className=" flex  justify-self-end mr-1 cursor-pointer sm:hidden">
+          <div className="mr-5 text-white">
+            <Badge badgeContent={9999} color="secondary" className="mr-3">
+            <ShoppingCart/>
+            </Badge>
+            Cart
+          </div>
+            <i className="fas fa-bars text-white text-lg"></i>
           </div>
 
           <div className="sm:w-[50%]  col-start-1 col-span-2 ml-2">
@@ -35,7 +42,9 @@ const Navbar = () => {
           <div className="mr-5">Login</div>
           <div className="mr-5">Sign Up</div>
           <div className="mr-5">
-            <ShoppingCart />
+            <Badge badgeContent={9999} color="secondary" className="mr-3">
+            <ShoppingCart/>
+            </Badge>
             Cart
           </div>
         </div>
