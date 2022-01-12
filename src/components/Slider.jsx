@@ -1,27 +1,51 @@
 import AwesomeSlider from "react-awesome-slider";
+import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
 
-const Slider = () => {
-  return (
-    // <div className="h-[60vh] flex shadow-md">
+const AutoplaySlider = withAutoplay(AwesomeSlider);
 
-    // </div>
-    <AwesomeSlider>
-      <div className=" h-full w-full text-black  bg-cover flex justify-center items-center bg-[url(https://images.unsplash.com/photo-1540497077202-7c8a3999166f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80)]">
-        <div className="w-[80%]">
-          <h2 className="text-5xl  mb-6">Summer Sale!!!</h2>
-          <p className="mb-6">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
-            atquis aut aliquid velit nostrum, illum neque? Obcaecati?
-          </p>
-          <button className="bg-red-500 p-2 rounded ">Shop Now</button>
-        </div>
+export const slider = (
+  <AutoplaySlider
+    play={true}
+    cancelOnInteraction={false} // should stop playing on user interaction
+    interval={4000}
+  >
+    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
+      <div className="w-[80%]">
+        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
+          Summer Sale!!!
+        </h2>
+        <p className="mb-6 text-xs lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
+        </p>
+        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
       </div>
-      <div>2</div>
-      <div>3</div>
-      
-    </AwesomeSlider>
-  );
-};
+    </div>
 
-export default Slider;
+    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
+      <div className="w-[80%]">
+        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
+          Summer Sale!!!
+        </h2>
+        <p className="mb-6 text-xs lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
+        </p>
+        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
+      </div>
+    </div>
+
+    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
+      <div className="w-[80%]">
+        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
+          Summer Sale!!!
+        </h2>
+        <p className="mb-6 text-xs lg:text-lg">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
+        </p>
+        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
+      </div>
+    </div>
+
+    {/* <div data-src="/path/to/image-2.jpg" /> */}
+  </AutoplaySlider>
+);
