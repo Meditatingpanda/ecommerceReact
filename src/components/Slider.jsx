@@ -1,6 +1,7 @@
 import AwesomeSlider from "react-awesome-slider";
 import withAutoplay from "react-awesome-slider/dist/autoplay";
 import "react-awesome-slider/dist/styles.css";
+import { Heroimagedata } from "../data/data";
 
 const AutoplaySlider = withAutoplay(AwesomeSlider);
 
@@ -9,43 +10,30 @@ export const slider = (
     play={true}
     cancelOnInteraction={false} // should stop playing on user interaction
     interval={4000}
+    bullets={false}
   >
-    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/5214418/pexels-photo-5214418.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500)]">
-      <div className="w-[80%]">
-        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Winter Sale!!
-        </h2>
-        <p className="mb-6 text-xs lg:text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
-        </p>
-        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
-      </div>
-    </div>
-
-    <div className=" h-full w-full  text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/848618/pexels-photo-848618.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)]">
-      <div className="w-[80%]">
-        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Winter Sale!!
-        </h2>
-        <p className="mb-6 text-xs lg:text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
-        </p>
-        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
-      </div>
-    </div>
-
-    <div className=" h-full w-full text-white  bg-cover flex justify-evenly items-center bg-[url(https://images.pexels.com/photos/804570/pexels-photo-804570.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260)]">
-      <div className="w-[80%]">
-        <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">
-          Winter Sale!!
-        </h2>
-        <p className="mb-6 text-xs lg:text-lg">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum quasi
-        </p>
-        <button className="bg-red-500 p-2 rounded ">Shop Now</button>
-      </div>
-    </div>
-
-    {/* <div data-src="/path/to/image-2.jpg" /> */}
+    {Heroimagedata.map((key) => {
+      return (
+        <div
+          className=" h-full w-full
+         text-white 
+           flex 
+          justify-evenly 
+          items-center 
+          
+          "
+          style={{
+            backgroundImage: `url(${key.img})`,
+            backgroundSize: "cover",
+          }}
+        >
+          <div className="w-[80%]">
+            <h2 className="lg:text-9xl text-4xl md:text-6xl mb-6">{key.h1}</h2>
+            <p className="mb-6 text-xs lg:text-lg">{key.des}</p>
+            <button className="bg-red-500 p-2 rounded ">Shop Now</button>
+          </div>
+        </div>
+      );
+    })}
   </AutoplaySlider>
 );
