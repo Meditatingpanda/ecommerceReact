@@ -6,11 +6,17 @@ import {
   CircularProgress,
 } from "@mui/material";
 import { Box, textAlign } from "@mui/system";
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
 
-const Cart = ({ cart,handleEmptyCart,handleUpdateCartQty,handleRemoveFromCart }) => {
+const Cart = ({
+  cart,
+  handleEmptyCart,
+  handleUpdateCartQty,
+  handleRemoveFromCart,
+}) => {
+  const navigate=useNavigate();
   let isLoading = true;
   let isShow = false;
   const EmptyCart = () => {
@@ -31,9 +37,10 @@ const Cart = ({ cart,handleEmptyCart,handleUpdateCartQty,handleRemoveFromCart })
           <Grid container spacing={3}>
             {cart.line_items.map((item) => (
               <Grid item xs={12} sm={4} key={item.id}>
-                <CartItem item={item} 
-                 handleUpdateCartQty={handleUpdateCartQty}
-                 handleRemoveFromCart={handleRemoveFromCart}
+                <CartItem
+                  item={item}
+                  handleUpdateCartQty={handleUpdateCartQty}
+                  handleRemoveFromCart={handleRemoveFromCart}
                 />
               </Grid>
             ))}
@@ -46,10 +53,10 @@ const Cart = ({ cart,handleEmptyCart,handleUpdateCartQty,handleRemoveFromCart })
             Subtotal:- {cart.subtotal.formatted_with_symbol}
           </Typography>
           <Box>
-            <Button variant="contained" color="error" onClick={handleEmptyCart }>
+            <Button variant="contained" color="error" onClick={handleEmptyCart}>
               Clear Cart
             </Button>
-            <Button variant="contained">Checkout</Button>
+            <Button variant="contained" onClick={()=>navigate('/checkout')}>Checkout</Button>
           </Box>
         </Container>
       </>
@@ -77,7 +84,7 @@ const Cart = ({ cart,handleEmptyCart,handleUpdateCartQty,handleRemoveFromCart })
           <CircularProgress sx={{ margin: "auto" }} />
         </Box>
       )}
-      
+
       {isShow && (cart.line_items.length ? <FilledCart /> : <EmptyCart />)}
     </div>
   );

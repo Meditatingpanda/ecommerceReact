@@ -8,7 +8,9 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
+
 const CartItem = ({ item, handleRemoveFromCart, handleUpdateCartQty }) => {
+ 
   return (
     <div>
       <Card
@@ -33,9 +35,17 @@ const CartItem = ({ item, handleRemoveFromCart, handleUpdateCartQty }) => {
         </CardContent>
         <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
           <Box sx={{ display: "flex", alignItems: "center" }}>
-            <Button>-</Button>
+            <Button
+              onClick={() => handleUpdateCartQty(item.id, item.quantity - 1)}
+            >
+              -
+            </Button>
             <Typography>{item.quantity}</Typography>
-            <Button>+</Button>
+            <Button
+              onClick={() => handleUpdateCartQty(item.id, item.quantity + 1)}
+            >
+              +
+            </Button>
           </Box>
           <Button
             variant="contained"
