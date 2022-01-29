@@ -8,7 +8,7 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 
-const CartItem = ({ item }) => {
+const CartItem = ({ item, handleRemoveFromCart, handleUpdateCartQty }) => {
   return (
     <div>
       <Card
@@ -37,7 +37,12 @@ const CartItem = ({ item }) => {
             <Typography>{item.quantity}</Typography>
             <Button>+</Button>
           </Box>
-          <Button variant="contained" color="error">
+          <Button
+            variant="contained"
+            color="error"
+            sx={{ ml: 1 }}
+            onClick={() => handleRemoveFromCart(item.id)}
+          >
             Remove
           </Button>
         </CardActions>

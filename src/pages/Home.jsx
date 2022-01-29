@@ -1,19 +1,15 @@
-import Categories from "../components/Categories";
-
 import Navbar from "../components/Navbar";
 import Newletter from "../components/Newsletter";
 import Products from "../components/Products";
 import { slider } from "../components/Slider";
 
-const Home = ({products,onAddToCart,cart}) => {
+const Home = ({ products, onAddToCart, cart }) => {
   return (
     <div>
       <Navbar cart={cart} />
       {slider}
-      {/* <Categories /> */}
-      <Products products={products} onAddToCart={onAddToCart}/>
+      <Products products={products} onAddToCart={onAddToCart} />
       <Newletter />
-     
     </div>
   );
 };

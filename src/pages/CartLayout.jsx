@@ -10,7 +10,9 @@ import { useState } from "react";
 import CartItem from "../components/CartItem";
 import Navbar from "../components/Navbar";
 
-const Cart = ({ cart }) => {
+const Cart = ({ cart,handleEmptyCart,handleUpdateCartQty,handleRemoveFromCart }) => {
+  let isLoading = true;
+  let isShow = false;
   const EmptyCart = () => {
     return (
       <Typography
@@ -29,7 +31,10 @@ const Cart = ({ cart }) => {
           <Grid container spacing={3}>
             {cart.line_items.map((item) => (
               <Grid item xs={12} sm={4} key={item.id}>
-               <CartItem item={item}/>
+                <CartItem item={item} 
+                 handleUpdateCartQty={handleUpdateCartQty}
+                 handleRemoveFromCart={handleRemoveFromCart}
+                />
               </Grid>
             ))}
           </Grid>
@@ -41,30 +46,18 @@ const Cart = ({ cart }) => {
             Subtotal:- {cart.subtotal.formatted_with_symbol}
           </Typography>
           <Box>
-            <Button variant="contained" color="error">Clear Cart</Button>
+            <Button variant="contained" color="error" onClick={handleEmptyCart }>
+              Clear Cart
+            </Button>
             <Button variant="contained">Checkout</Button>
           </Box>
         </Container>
       </>
     );
   };
-  if (!cart.line_items) {
-    return <div>
-      <Navbar cart={cart} />
-      <Typography
-        variant="h3"
-        sx={{
-          textAlign: "center",
-          color: "text.secondary",
-          mt: 4,
-        }}
-      >
-        Your Shopping Cart
-      </Typography>
-      <Box sx={{display:'flex',justifyContent:'center',mt:10}}>
-      <CircularProgress sx={{margin:'auto'}}/>
-      </Box>
-    </div>;
+  if (cart.line_items) {
+    isLoading = !isLoading;
+    isShow = !isShow;
   }
   return (
     <div>
@@ -79,8 +72,13 @@ const Cart = ({ cart }) => {
       >
         Your Shopping Cart
       </Typography>
-
-      {cart.line_items.length ? <FilledCart /> : <EmptyCart />}
+      {isLoading && (
+        <Box sx={{ display: "flex", justifyContent: "center", mt: 10 }}>
+          <CircularProgress sx={{ margin: "auto" }} />
+        </Box>
+      )}
+      
+      {isShow && (cart.line_items.length ? <FilledCart /> : <EmptyCart />)}
     </div>
   );
 };
