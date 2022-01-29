@@ -1,8 +1,9 @@
-import "../style/main.css";
-import { Search, ShoppingCart } from "@material-ui/icons";
-import { Badge } from "@material-ui/core";
+// import {ShoppingCartIcon,SearchIcon} from '@mui/icons-material';
+import { ShoppingCart,Search } from '@mui/icons-material';
+import Badge from '@mui/material/Badge';
+import { IconButton } from "@mui/material";
 
-const Navbar = () => {
+const Navbar = ({cart}) => {
   return (
     <div className="  bg-blue-600 h-24  sm:h-20  flex items-center justify-center">
       <div className=" flex  items-center sm:justify-around  w-[95%] h-7">
@@ -15,7 +16,7 @@ const Navbar = () => {
           </div>
           <div className=" flex  justify-self-end mr-1 cursor-pointer sm:hidden">
           <div className="mr-5 text-white">
-            <Badge badgeContent={9999} color="secondary" className="mr-3">
+            <Badge badgeContent={cart.total_items} color="secondary" className="mr-3">
             <ShoppingCart/>
             </Badge>
            
@@ -42,10 +43,18 @@ const Navbar = () => {
           <div className="mr-5">Login</div>
           <div className="mr-5">Sign Up</div>
           <div className="mr-5">
-            <Badge badgeContent={9999} color="secondary" className="mr-3">
+            <IconButton sx={
+              {
+                color:'white',
+                mt:-1
+                
+              }
+            }>
+            <Badge badgeContent={cart.total_items} color="secondary" className="mr-3">
             <ShoppingCart/>
             </Badge>
-            Cart
+             Cart
+            </IconButton>
           </div>
         </div>
       </div>

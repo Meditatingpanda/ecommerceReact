@@ -1,4 +1,4 @@
-import { Telegram } from "@material-ui/icons";
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 const Newletter = () => {
   return (
@@ -13,8 +13,8 @@ const Newletter = () => {
           className="focus:outline-none p-2 pl-3 text-sm w-[50%]"
           placeholder="Your Email"
         />
-        <div className="bg-[#008080] w-[8%] flex items-center justify-center text-white">
-          <Telegram />
+        <div className="bg-[#008080] w-[8%] flex items-center justify-center cursor-pointer text-white">
+         <TelegramIcon/>
         </div>
       </div>
     </div>
