@@ -4,15 +4,13 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { IconButton } from "@mui/material";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
-import FavoriteIcon from "@mui/icons-material/Favorite";
 import { Box } from "@mui/system";
+import { motion } from "framer-motion";
 
-const Product = ({ product,onAddToCart }) => {
- // console.log(product);
+const Product = ({ product, onAddToCart }) => {
+  // console.log(product);
   return (
-    <Card sx={{ maxWidth: 345, mb: 2 }}>
+    <Card sx={{ maxWidth: 345, aspectRatio: 1, mb: 2, position: "relative" }}>
       <CardMedia
         component="img"
         sx={{
@@ -21,17 +19,11 @@ const Product = ({ product,onAddToCart }) => {
           mt: 2,
         }}
         image={product.image.url}
-        alt="green iguana"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
           {product.name}
         </Typography>
-        <Typography
-          dangerouslySetInnerHTML={{ __html: product.description }}
-          variant="body2"
-          color="text.secondary"
-        />
 
         <Box sx={{ display: "flex", justifyContent: "space-between" }}>
           <Typography variant="h5" sx={{ mt: 3 }} color="text.secondary">
@@ -43,15 +35,37 @@ const Product = ({ product,onAddToCart }) => {
             color="text.secondary"
           ></Typography>
         </Box>
+        <Typography dangerouslySetInnerHTML={{ __html: product.description }} />
       </CardContent>
-      <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
-        <IconButton onClick={()=>onAddToCart(product.id,1)}>
+      {/* <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+        <IconButton onClick={() => onAddToCart(product.id, 1)}>
           <ShoppingCartIcon />
         </IconButton>
         <IconButton>
           <FavoriteIcon />
         </IconButton>
-      </CardActions>
+      </CardActions> */}
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        whileHover={{ opacity: 1 }}
+        className="z-40 flex justify-center items-center absolute h-full w-full bg-[rgba(0,0,0,0.4)] top-0"
+      >
+        <div className="flex">
+          <div
+            onClick={() => onAddToCart(product.id, 1)}
+            className="hover:scale-110 cursor-pointer  hover:bg-red-200  transition-all ease-in   bg-white rounded-full top-1/2 m-1 h-10 w-10 flex items-center justify-center"
+          >
+            <ShoppingCart />
+          </div>
+          <div className="hover:scale-110 cursor-pointer  hover:bg-red-200  transition-all ease-in bg-white rounded-full m-1 h-10 w-10 flex items-center justify-center">
+            <Search />
+          </div>
+          <div className="hover:scale-110 cursor-pointer  hover:bg-red-200 transition-all ease-in  bg-white rounded-full m-1 h-10 w-10 flex items-center justify-center">
+            <Favorite />
+          </div>
+        </div>
+      </motion.div>
     </Card>
   );
 };

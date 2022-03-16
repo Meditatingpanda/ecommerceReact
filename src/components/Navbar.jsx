@@ -3,17 +3,18 @@ import { ShoppingCart, Search } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import logo from '../assets/img/logo.png'
 const Navbar = ({ cart }) => {
   const navigate = useNavigate();
   return (
-    <div className="  bg-blue-600 h-24  sm:h-20  flex items-center justify-center">
+    <div className="  bg-black h-24  sm:h-20  flex items-center justify-center">
       <div className=" flex  items-center sm:justify-around  w-[95%] h-7">
         <div className="sm:w-[60%] grid grid-cols-2 sm:flex w-full">
           <div onClick={() => navigate("/")} className="cursor-pointer">
-            <img
-              src="https://static-assets-web.flixcart.com/www/linchpin/fk-cp-zion/img/fk-plus_3b0baa.png"
-              className=" ml-3 mb-3 h-6 sm:h-8"
-            />
+            <div className=" ml-3 mr-5 mb-3 text-3xl text-red-600">
+              SPORTIFY
+            </div>
+           
           </div>
           <div className=" flex  justify-self-end mr-1 cursor-pointer sm:hidden">
             <div className="mr-5 text-white">
