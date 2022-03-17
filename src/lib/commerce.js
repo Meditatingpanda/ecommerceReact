@@ -1,3 +1,3 @@
-import Commerce from '@chec/commerce.js';
-const key='pk_39176943339aea70f02935585c2926d89a182760ead05';
-export const  commerce=new Commerce(key,true);
+import Commerce from "@chec/commerce.js";
+const key = "pk_test_391760cd11521472716c99aa92bdd8712f0db10c6d7dc";
+export const commerce = new Commerce(key, true);

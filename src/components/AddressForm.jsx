@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 import { commerce } from "../lib/commerce";
 import FormInput from "./CustomTextField";
 
-function AddressForm({ checkoutToken,test }) {
+function AddressForm({ checkoutToken, test }) {
   const [shippingCountries, setShippingCountries] = useState([]);
   const [shippingCountry, setShippingCountry] = useState("");
   const [shippingSubdivisions, setShippingSubdivisions] = useState([]);
@@ -20,10 +20,9 @@ function AddressForm({ checkoutToken,test }) {
   const [shippingOptions, setShippingOptions] = useState([]);
   const [shippingOption, setShippingOption] = useState("");
   const methods = useForm();
+
   const fetchShippingCountries = async (checkoutTokenId) => {
-    const { countries } = await commerce.services.localeListShippingCountries(
-      checkoutTokenId
-    );
+    const { countries } = await commerce.services.localeListShippingCountries();
 
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
@@ -38,22 +37,18 @@ function AddressForm({ checkoutToken,test }) {
     setShippingSubdivision(Object.keys(subdivisions)[0]);
   };
 
-  const fetchShippingOptions = async (
-    checkoutTokenId,
-    country,
-    stateProvince = null
-  ) => {
+  const fetchShippingOptions = async (checkoutTokenId, country, region) => {
     const options = await commerce.checkout.getShippingOptions(
       checkoutTokenId,
-      { country, region: stateProvince }
+      { country, region }
     );
-
-    setShippingOptions(options);
+    
+     setShippingOptions(options);
     setShippingOption(options[0].id);
   };
 
   useEffect(() => {
-    fetchShippingCountries(checkoutToken.id);
+    fetchShippingCountries();
   }, []);
 
   useEffect(() => {
@@ -86,12 +81,12 @@ function AddressForm({ checkoutToken,test }) {
           )}
         >
           <Grid container spacing={3}>
-            <FormInput required name="firstName" label="First name" />
-            <FormInput required name="lastName" label="Last name" />
-            <FormInput required name="address1" label="Address line 1" />
-            <FormInput required name="email" label="Email" />
-            <FormInput required name="city" label="City" />
-            <FormInput required name="zip" label="Zip / Postal code" />
+            <FormInput required name="firstName" label="firstName" />
+            <FormInput required name="lastName" label="lastName" />
+            <FormInput required name="address1" label="address1" />
+            <FormInput required name="email" label="email" />
+            <FormInput required name="city" label="city" />
+            <FormInput required name="zip" label="zip" />
             <Grid item xs={12} sm={6}>
               <InputLabel>Shipping Country</InputLabel>
               <Select

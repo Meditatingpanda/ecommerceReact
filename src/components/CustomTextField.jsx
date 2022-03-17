@@ -27,6 +27,7 @@ function FormInput({ name, label, required }) {
             onChange={onChange} // send value to hook form
             label={name}
             value={value}
+            fullWidth
             inputRef={ref}
           />
         )}

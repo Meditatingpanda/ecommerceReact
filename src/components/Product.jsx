@@ -1,4 +1,5 @@
 import { Favorite, Search, ShoppingCart } from "@mui/icons-material";
+import { IconButton } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -37,19 +38,17 @@ const Product = ({ product, onAddToCart }) => {
         </Box>
         <Typography dangerouslySetInnerHTML={{ __html: product.description }} />
       </CardContent>
-      {/* <CardActions sx={{ display: "flex", justifyContent: "space-between" }}>
+      <CardActions sx={{ display: 'flex', justifyContent: "space-between" }}>
         <IconButton onClick={() => onAddToCart(product.id, 1)}>
-          <ShoppingCartIcon />
+        <ShoppingCart />
         </IconButton>
-        <IconButton>
-          <FavoriteIcon />
-        </IconButton>
-      </CardActions> */}
+     
+      </CardActions>
 
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0 }}
         whileHover={{ opacity: 1 }}
-        className="z-40 flex justify-center items-center absolute h-full w-full bg-[rgba(0,0,0,0.4)] top-0"
+        className="z-40   sm:hidden md:visible flex justify-center items-center absolute h-full w-full bg-[rgba(0,0,0,0.4)] top-0"
       >
         <div className="flex">
           <div
@@ -65,7 +64,7 @@ const Product = ({ product, onAddToCart }) => {
             <Favorite />
           </div>
         </div>
-      </motion.div>
+      </motion.div> */}
     </Card>
   );
 };

@@ -6,7 +6,7 @@ import Confirmation from "./Confirmation";
 import PaymentForm from "./PaymentForm";
 import { commerce } from "../lib/commerce";
 const steps = ["Shipping Address", "Payment details"];
-const Checkout = ({ cart }) => {
+const Checkout = ({ cart, onCaptureCheckout, order, error,refreshCart }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [activeStep, setActiveStep] = useState(0);
   const [shippingData, setShippingData] = useState({});
@@ -39,17 +39,24 @@ const Checkout = ({ cart }) => {
     activeStep === 0 ? (
       <AddressForm checkoutToken={checkoutToken} test={test} />
     ) : (
-      <PaymentForm checkoutToken={checkoutToken} backStep={backStep} />
+      <PaymentForm
+        checkoutToken={checkoutToken}
+        shippingData={shippingData}
+        onCaptureCheckout={onCaptureCheckout}
+        backStep={backStep}
+        nextStep={nextStep}
+        refreshCart={refreshCart}
+      />
     );
   return (
     <div className="text-5xl text-center">
       <main>
         <Paper
           sx={{
-            width: "45%",
+            width: {md:'50%',xs:'100%'},
             mx: "auto",
-            minHeight: "10rem",
-            marginTop: "5rem",
+            minHeight: "100vh",
+            marginTop: "2rem",
             p: 5,
           }}
         >
@@ -61,7 +68,7 @@ const Checkout = ({ cart }) => {
           >
             Checkout
           </Typography>
-          <Stepper activeStep={activeStep} sx={{ p: 4 }}>
+          <Stepper activeStep={activeStep} sx={{ p: {lg:4,md:2,xs:0} }}>
             {steps.map((label) => (
               <Step key={label}>
                 <StepLabel>{label}</StepLabel>

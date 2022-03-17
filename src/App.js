@@ -8,6 +8,8 @@ import Checkout from "./components/Checkout";
 const App = () => {
   const [products, setProducts] = useState([]);
   const [cart, setCart] = useState({});
+  const [order, setOrder] = useState({});
+  const [errorMessage, setErrorMessage] = useState("");
   const fetchCart = async () => {
     setCart(await commerce.cart.retrieve());
   };
@@ -33,6 +35,25 @@ const App = () => {
   const handleEmptyCart = async () => {
     const { cart } = await commerce.cart.empty();
     setCart(cart);
+  };
+  const refreshCart = async () => {
+    const newCart = await commerce.cart.refresh();
+
+    setCart(newCart);
+  };
+  const handleCaptureCheckout = async (checkoutTokenId, newOrder) => {
+    try {
+      const incomingOrder = await commerce.checkout.capture(
+        checkoutTokenId,
+        newOrder
+      );
+
+      setOrder(incomingOrder);
+
+      refreshCart();
+    } catch (error) {
+      setErrorMessage(error.data.error.message);
+    }
   };
 
   useEffect(() => {
@@ -72,7 +93,12 @@ const App = () => {
           exact
           path="/checkout"
           element={
-             <Checkout cart={cart}/>
+            <Checkout
+              cart={cart}
+              order={order}
+              refreshCart={refreshCart}
+              error={errorMessage}
+            />
           }
         />
       </Routes>
