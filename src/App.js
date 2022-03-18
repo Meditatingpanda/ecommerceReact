@@ -2,8 +2,9 @@ import Home from "./pages/Home";
 import { commerce } from "./lib/commerce";
 import { useEffect, useState } from "react";
 import Cart from "./pages/CartLayout";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes ,Redirect} from "react-router-dom";
 import Checkout from "./components/Checkout";
+import LoginPage from "./pages/LoginPage";
 
 const App = () => {
   const [products, setProducts] = useState([]);
@@ -67,7 +68,7 @@ const App = () => {
       <Routes>
         <Route
           exact
-          path="/"
+          path="/home"
           element={
             <Home
               products={products}
@@ -76,7 +77,8 @@ const App = () => {
             />
           }
         />
-
+        
+       <Route exact path="/" element={<LoginPage/>} />
         <Route
           exact
           path="/cart"

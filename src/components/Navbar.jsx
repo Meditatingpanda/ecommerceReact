@@ -10,7 +10,7 @@ const Navbar = ({ cart }) => {
     <div className="  bg-black h-24  sm:h-20  flex items-center justify-center">
       <div className=" flex  items-center sm:justify-around  w-[95%] h-7">
         <div className="sm:w-[60%] grid grid-cols-2 sm:flex w-full">
-          <div onClick={() => navigate("/")} className="cursor-pointer">
+          <div onClick={() => navigate("/home")} className="cursor-pointer">
             <div className=" ml-3 mr-5 mb-3 text-3xl text-red-600">
               SPORTIFY
             </div>

@@ -97,7 +97,7 @@ function PaymentForm({
         <ElementsConsumer>
           {({ elements, stripe }) => (
             <form onSubmit={(e) => handleSubmit(e)}>
-              {/* <CardElement /> */}
+              <CardElement />
               <br /> <br />
               <div style={{ display: "flex", justifyContent: "space-between" }}>
                 <Button variant="outlined" onClick={backStep}>
