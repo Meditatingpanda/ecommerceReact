@@ -21,7 +21,7 @@ function Confirmation() {
           sx={{ fontSize: "10rem" }}
         />
         <span className="text-green-400 ">Thank You For Purchasing.</span>
-        <Button component={Link} to='/' variant="contained" sx={{mt:3}} >Back to Home</Button>
+        <Button component={Link} to='/home' variant="contained" sx={{mt:3}} >Back to Home</Button>
       </div>
     </motion.div>
   );

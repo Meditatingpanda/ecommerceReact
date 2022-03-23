@@ -3,9 +3,12 @@ import { ShoppingCart, Search } from "@mui/icons-material";
 import Badge from "@mui/material/Badge";
 import { IconButton } from "@mui/material";
 import { useNavigate } from "react-router-dom";
-import logo from '../assets/img/logo.png'
+import logo from "../assets/img/logo.png";
+import Menu from "./Menu";
+import Menu1 from "./Menu";
 const Navbar = ({ cart }) => {
   const navigate = useNavigate();
+
   return (
     <div className="  bg-black h-24  sm:h-20  flex items-center justify-center">
       <div className=" flex  items-center sm:justify-around  w-[95%] h-7">
@@ -14,20 +17,19 @@ const Navbar = ({ cart }) => {
             <div className=" ml-3 mr-5 mb-3 text-3xl text-red-600">
               SPORTIFY
             </div>
-           
           </div>
-          <div className=" flex  justify-self-end mr-1 cursor-pointer sm:hidden">
+          <div className=" flex  justify-self-end items-center mr-1 cursor-pointer sm:hidden">
             <div className="mr-5 text-white">
               <Badge
                 onClick={() => navigate("/cart")}
                 badgeContent={cart.total_items}
                 color="secondary"
-                className="mr-3"
+                
               >
                 <ShoppingCart />
               </Badge>
             </div>
-            <i className="fas fa-bars text-white text-lg"></i>
+            <Menu1 />
           </div>
 
           <div className="sm:w-[50%]  col-start-1 col-span-2 ml-2">
@@ -45,27 +47,21 @@ const Navbar = ({ cart }) => {
           </div>
         </div>
 
-        <div className="text-base sm:flex  text-white  hidden sm:visible ">
-          <div className="mr-5">Login</div>
-          <div className="mr-5">Sign Up</div>
+        <div className="text-base sm:flex  items-center text-white  hidden sm:visible ">
           <div className="mr-5">
             <IconButton
               sx={{
                 color: "white",
-                mt: -1,
               }}
               onClick={() => navigate("/cart")}
             >
-              <Badge
-                badgeContent={cart.total_items}
-                color="secondary"
-                className="mr-3"
-              >
+              <Badge badgeContent={cart.total_items} color="secondary">
                 <ShoppingCart />
               </Badge>
               Cart
             </IconButton>
           </div>
+          <Menu1 />
         </div>
       </div>
     </div>
