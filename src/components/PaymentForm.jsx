@@ -49,7 +49,7 @@ function PaymentForm({
     },
     fulfillment: { shipping_method: shippingData.shippingOption },
   };
-  console.log(orderDetails);
+  
   const stripePromise = loadStripe(
     "pk_test_51KdtgJSBEqekrGe72Ju6r5R8AvivBLjkPWifkWGjo3ZN9SlsHhYoD6Ak5m1AWCQKIDX5dRHYu62VOUYBshCohAVr00VFhZDnKn"
   );
@@ -58,7 +58,7 @@ function PaymentForm({
 
     try {
       // Use a checkout token ID that was generated earlier, and any order details that may have been collected.
-      const order = await commerce.checkout.capture(checkoutToken, {
+      const order = await commerce.checkout.capture(checkoutToken.id, {
         ...orderDetails,
         // Include test gateway action and card details.
         payment: {

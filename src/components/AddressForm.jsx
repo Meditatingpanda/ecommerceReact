@@ -22,7 +22,9 @@ function AddressForm({ checkoutToken, test }) {
   const methods = useForm();
 
   const fetchShippingCountries = async (checkoutTokenId) => {
-    const { countries } = await commerce.services.localeListShippingCountries();
+    const { countries } = await commerce.services.localeListShippingCountries(
+      checkoutTokenId
+    );
 
     setShippingCountries(countries);
     setShippingCountry(Object.keys(countries)[0]);
@@ -42,13 +44,13 @@ function AddressForm({ checkoutToken, test }) {
       checkoutTokenId,
       { country, region }
     );
-    
-     setShippingOptions(options);
+
+    setShippingOptions(options);
     setShippingOption(options[0].id);
   };
 
   useEffect(() => {
-    fetchShippingCountries();
+    fetchShippingCountries(checkoutToken.id);
   }, []);
 
   useEffect(() => {

@@ -20,7 +20,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error,refreshCart }) => {
           const token = await commerce.checkout.generateToken(cart.id, {
             type: "cart",
           });
-
+       
           setCheckoutToken(token);
         } catch {
           if (activeStep !== steps.length) navigate("/");
@@ -35,6 +35,7 @@ const Checkout = ({ cart, onCaptureCheckout, order, error,refreshCart }) => {
     console.log(data);
     nextStep();
   };
+ 
   const Form = () =>
     activeStep === 0 ? (
       <AddressForm checkoutToken={checkoutToken} test={test} />
